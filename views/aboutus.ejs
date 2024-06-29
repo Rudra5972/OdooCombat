@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-teal-200 via-blue-200 to-purple-200 min-h-screen p-8 text-gray-800 animate-gradient bg-[length:200%_200%]">
+    <!-- Header -->
+    <header class="flex justify-between items-center p-4 bg-white/70 rounded-lg shadow-lg backdrop-blur-md mb-8">
+        <h1 class="text-2xl font-bold text-gray-700">Secure Examination Paper Distribution System</h1>
+        <a href="/login" class="bg-teal-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-teal-600 hover:shadow-lg transition ease-in-out duration-300 transform hover:-translate-y-1">
+            Home
+        </a>
+    </header>
+
+    <h1 class="text-4xl font-extrabold mb-8 text-center text-gray-700">About Us</h1>
+
+    <section class="max-w-4xl mx-auto p-6 bg-white/70 rounded-lg shadow-lg backdrop-blur-md">
+        <h2 class="text-3xl font-semibold mb-6">Secure Examination Paper Distribution System</h2>
+        <p class="text-gray-700 mb-6">
+            Creating a secure examination paper distribution system is essential to maintain the integrity and confidentiality of exams.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-green-500">Core Features</h3>
+        <div class="space-y-4">
+            <div>
+                <h4 class="text-xl font-semibold mb-2 text-blue-500">User Authentication and Authorization</h4>
+                <ul class="list-disc list-inside text-gray-700">
+                    <li>Secure login system for different user roles: administrators, examiners, and invigilators.</li>
+                    <li>Role-based access control to ensure data privacy and security.</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xl font-semibold mb-2 text-blue-500">Secure Paper Upload and Management</h4>
+                <ul class="list-disc list-inside text-gray-700">
+                    <li>Administrators and examiners can upload examination papers.</li>
+                    <li>Papers are encrypted upon upload to ensure confidentiality.</li>
+                    <li>Version control to manage updates and revisions to papers.</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xl font-semibold mb-2 text-blue-500">Access Control and Distribution</h4>
+                <ul class="list-disc list-inside text-gray-700">
+                    <li>Granular access control to ensure only authorized personnel can access specific papers.</li>
+                    <li>Scheduled distribution of papers to ensure they are available only at the specified times.</li>
+                    <li>Logging of all access attempts for audit purposes.</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xl font-semibold mb-2 text-blue-500">Exam Paper Viewing and Download</h4>
+                <ul class="list-disc list-inside text-gray-700">
+                    <li>Secure interface for authorized users to view and download examination papers.</li>
+                    <li>Watermarking and tracking to prevent unauthorized sharing.</li>
+                    <li>Time-limited access to downloaded papers to ensure they are only accessible during the examination period.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="flex justify-between items-center p-4 bg-white/70 rounded-lg shadow-lg backdrop-blur-md mt-8">
+        <div class="text-gray-700">© 2024 Secure Examination Paper Distribution System</div>
+        <div class="text-gray-700"><a href="/login" class="hover:underline hover:text-teal-500 transition duration-300">Home</a></div>
+    </footer>
+</body>
+</html>

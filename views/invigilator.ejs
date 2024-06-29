@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invigilator Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    .fade-out {
+      animation: fadeOut 0.5s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+
+    .gradient-animation {
+      background: linear-gradient(270deg, #81e6d9, #90cdf4, #d6bcfa, #fbb6ce);
+      background-size: 600% 600%;
+      animation: gradientShift 8s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: linear-gradient(45deg, #f3e7e9, #e3eeff); /* Replace with your desired background gradient */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.9); /* Adjust opacity as needed */
+      backdrop-filter: blur(8px);
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    header:hover {
+      background-color: rgba(255, 255, 255, 1); /* Adjust opacity on hover */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+    }
+
+    footer {
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.9); /* Adjust opacity as needed */
+      backdrop-filter: blur(8px);
+      padding: 1rem;
+      margin-top: auto;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    footer:hover {
+      background-color: rgba(255, 255, 255, 1); /* Adjust opacity on hover */
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+    }
+
+    .main-content {
+      background-color: rgba(255, 255, 255, 0.8); /* Adjust opacity as needed */
+      backdrop-filter: blur(8px);
+      padding: 2rem;
+      margin: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .main-content:hover {
+      background-color: rgba(255, 255, 255, 1); /* Adjust opacity on hover */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center bg-gray-100 text-gray-800 fade-in">
+
+  <!-- Header -->
+  <header class="flex justify-between items-center rounded-lg mb-8">
+    <h1 class="text-2xl font-bold text-gray-700 px-4">Username</h1>
+    <button class="bg-teal-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-teal-600 hover:shadow-lg transition ease-in-out duration-300 transform hover:-translate-y-1 mr-4">Logout</button>
+  </header>
+
+  <!-- Main Content -->
+  <div class="main-content bg-white/80 rounded-lg shadow-lg max-w-2xl w-full gradient-animation">
+    <h1 class="text-5xl font-extrabold mb-8 text-center text-gray-700">Invigilator Dashboard</h1>
+  
+    <div class="bg-white/80 rounded-lg shadow-lg p-8 backdrop-blur-md">
+      <h2 class="text-3xl font-bold text-center mb-6 text-gray-700">Uploaded Files</h2>
+      <ul class="space-y-4">
+        <% if(locals.files){ %>
+        <% files.forEach(file => { %>
+          <li class="flex justify-between items-center bg-white/60 p-4 rounded-lg shadow-md hover:bg-white transition duration-300 ease-in-out transform hover:-translate-y-1">
+            <span class="text-lg text-gray-800"><%= file.name %></span>
+            <a href="/download/<%= file.id %>" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-full shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-teal-400 transition ease-in-out duration-300 transform hover:-translate-y-1">
+              Download
+            </a>
+          </li>
+        <% }) %>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="flex justify-between items-center rounded-lg p-4 backdrop-blur-md mt-auto">
+    <div class="text-gray-700">© 2024 Invigilator Dashboard</div>
+    <div class="text-gray-700"><a href="/aboutus" class="hover:underline hover:text-teal-500 transition duration-300">About Us</a></div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function(event) {
+        document.body.classList.add('fade-out');
+      });
+    });
+  </script>
+</body>
+</html>

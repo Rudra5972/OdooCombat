@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-teal-200 via-blue-200 to-purple-200 min-h-screen p-8 text-gray-800 animate-gradient bg-[length:200%_200%]">
+    <!-- Header -->
+    <header class="flex justify-between items-center p-4 bg-white/70 rounded-lg shadow-lg backdrop-blur-md mb-8">
+        <h1 class="text-2xl font-bold text-gray-700">Username</h1>
+        <button class="bg-teal-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-teal-600 hover:shadow-lg transition ease-in-out duration-300 transform hover:-translate-y-1">Logout</button>
+    </header>
+
+    <h1 class="text-4xl font-extrabold mb-8 text-center text-gray-700">Admin Dashboard</h1>
+
+    <!-- <section class="mb-10 max-w-lg mx-auto p-6 bg-white/70 rounded-lg shadow-lg backdrop-blur-md">
+        <h2 class="text-3xl font-semibold mb-6 text-center">Grant Access</h2>
+        <form action="/grant" method="POST" class="bg-white p-8 rounded-lg shadow-md text-gray-800 transition-transform transform hover:scale-105 hover:shadow-lg">
+            <div class="mb-6">
+                <label for="username" class="block text-lg font-medium mb-2">Username:</label>
+                <p class="border-b-2 border-gray-300 py-2">JohnDoe</p>
+            </div>
+            
+            <div class="mb-6">
+                <label for="role" class="block text-lg font-medium mb-2">Role:</label>
+                <p class="border-b-2 border-gray-300 py-2">Admin</p>
+            </div>
+
+            <button type="submit" class="bg-teal-500 text-white px-6 py-3 rounded-full shadow-md hover:bg-teal-600 hover:shadow-lg transition ease-in-out duration-300 transform hover:-translate-y-1">
+                Grant Access
+            </button>
+        </form>
+    </section> -->
+
+    <section class="mb-10 max-w-lg mx-auto p-6 bg-white/70 rounded-lg shadow-lg backdrop-blur-md">
+        <h2 class="text-3xl font-semibold mb-6 text-center">Upload Files</h2>
+        <form action="/uploadfile" method="POST" enctype="multipart/form-data" class="bg-white p-8 rounded-lg shadow-md text-gray-800 transition-transform transform hover:scale-105 hover:shadow-lg">
+            <div class="mb-6">
+                <label for="file" class="block text-lg font-medium mb-2">Choose a file:</label>
+                <input type="file" id="file" name="file" required class="w-full border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-teal-400">
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="startDate">
+                  Start Date
+                </label>
+                <input
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="startDate"
+                  type="date"
+                  name="startDate"
+                >
+              </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="startTime">
+                  Start Time
+                </label>
+                <input
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="startTime"
+                  type="time"
+                  name="startTime"
+                >
+              </div>
+              <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="validity">
+                  Validity (in minutes)
+                </label>
+                <input
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="validity"
+                  type="number"
+                  name="validity"
+                >
+              </div>
+            <button type="submit" class="bg-teal-500 text-white px-6 py-3 rounded-full shadow-md hover:bg-teal-600 hover:shadow-lg transition ease-in-out duration-300 transform hover:-translate-y-1">
+                Upload File
+            </button>
+        </form>
+    </section>
+
+    <section class="max-w-lg mx-auto p-6 bg-white/70 rounded-lg shadow-lg backdrop-blur-md">
+        <h2 class="text-3xl font-semibold mb-6 text-center">Log Files</h2>
+        <ul class="bg-white p-8 rounded-lg shadow-md text-gray-800 transition-transform transform hover:scale-105 hover:shadow-lg">
+            <!-- Log items should be dynamically generated -->
+            <% if(locals.logs){ %>
+                <% logs.forEach((log) => { %>
+                    <li class="mb-4 border-b border-gray-200 pb-2"><strong><%= log.timestamp %>:</strong> <%= log.message %></li>
+                <% }) %>
+            <% } %> 
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer class="flex justify-between items-center p-4 bg-white/70 rounded-lg shadow-lg backdrop-blur-md mt-8">
+        <div class="text-gray-700">© 2024 Admin Dashboard</div>
+        <div class="text-gray-700"><a href="#about-us" class="hover:underline hover:text-teal-500 transition duration-300">About Us</a></div>
+    </footer>
+</body>
+</html>
+
